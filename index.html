@@ -1,11 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emergency Service Directory BD</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      button {
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: black;
+        color: white;
+      }
+      .call_btn_div,
+      .copy_btn {
+        cursor: pointer;
+      }
+      .call_btn_div:hover,
+      .copy_btn:hover {
+        background-color: black;
+        color: white;
+      }
+      .card {
+        background-color: white;
+      }
+    </style>
+
+    <!-- fontawesome cdn  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- tailwind css cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <!-- navbar section  -->
+
+    <section
+      class="navbar_section flex justify-between px-5 py-5 bg-white flex-col md:flex-row gap-5"
+    >
+      <div class="left_div flex gap-3 sm:w-full">
+        <img src="assets/logo.png" class="h-[50px] w-[50px]" />
+        <span class="font-bold text-2xl text-[#006747]"
+          >Emergency <br />
+          Service</span
+        >
+      </div>
+
+      <div class="right_div flex gap-3">
+        <div
+          class="heart h-[53px] w-[123px] flex items-center justify-center gap-2 rounded-[50px] bg-[#41ff6b1a]"
+        >
+          <span class="heart_count font-bold">0</span>
+          <img src="assets/heart.png" class="h-[30px] w-[30px]" />
+        </div>
+        <div
+          class="coin h-[53px] w-[123px] flex items-center justify-center gap-2 rounded-[50px] bg-[#41ff6b1a]"
+        >
+          <span class="coin_count font-bold">100</span>
+          <img src="assets/coin.png" class="h-[24px] w-[24px]" />
+        </div>
+        <div
+          class="copy h-[53px] w-[123px] flex items-center justify-center gap-2 rounded-[50px] bg-[#00a63e] text-white font-bold"
+        >
+          <span class="copy_count">0</span>
+          <span>Copy</span>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>
