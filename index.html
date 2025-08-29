@@ -435,3 +435,97 @@
         ></div>
       </div>
     </section>
+<!-------------------- for js ------------------------>
+
+    <script>
+      //------------- For Heart Button Function-----------------
+
+      let heartCount = 0;
+
+      const heartIcons = document.querySelectorAll(".heart_icon");
+      const heartCountSpan = document.querySelector(".heart_count");
+      for (const icon of heartIcons) {
+        icon.addEventListener("click", function () {
+          icon.classList.toggle("fa-regular");
+          icon.classList.toggle("fa-solid");
+          icon.classList.toggle("text-red-500");
+
+          if (icon.classList.contains("fa-solid")) {
+            heartCount++;
+          } else {
+            heartCount--;
+          }
+          heartCountSpan.textContent = heartCount;
+        });
+      }
+
+      //--------------   copy count function starts here--------------
+
+      let copyCount = 0;
+      const copyButtons = document.querySelectorAll(".copy_btn");
+      const copyCounts = document.querySelector(".copy_count");
+
+      for (const button of copyButtons) {
+        button.addEventListener("click", function () {
+          copyCount++;
+
+          copyCounts.textContent = copyCount;
+          const number =
+            button.parentElement.parentElement.querySelector("h1").textContent;
+          alert("Number will be copied to clipboard: " + number);
+          navigator.clipboard.writeText(number);
+        });
+      }
+
+      //-------------   call button function & history function ----------------
+
+      let coins = 100;
+      const callButtons = document.querySelectorAll(".call_btn_div");
+      const coinCountSpan = document.querySelector(".coin_count");
+      const callHistoryDiv = document.querySelector(".call_history");
+      const clearHistoryButton = document.querySelector(".clear_history_btn");
+      for (const btn of callButtons) {
+        btn.addEventListener("click", function () {
+          const service =
+            btn.parentElement.parentElement.querySelector("h2").textContent;
+          const serviceNumber =
+            btn.parentElement.parentElement.querySelector("h1").textContent;
+
+          if (coins < 20) {
+            alert("Not enough coin");
+            return;
+          }
+          coins -= 20;
+          coinCountSpan.textContent = coins;
+          alert("Calling to " + service + " " + serviceNumber);
+          const time = new Date().toLocaleString();
+          const newEntryDiv = document.createElement("div");
+          newEntryDiv.classList.add(
+            "flex",
+            "justify-between",
+            "px-2",
+            "py-1",
+            "bg-white",
+            "rounded-md",
+            "shadow-sm"
+          );
+
+          const leftDiv = document.createElement("div");
+          leftDiv.classList.add("flex", "flex-col");
+          leftDiv.innerHTML = `<span>${service} </span> <span> (${serviceNumber}) </span>`;
+          const rightSpan = document.createElement("span");
+          rightSpan.textContent = time;
+
+          newEntryDiv.appendChild(leftDiv);
+          newEntryDiv.appendChild(rightSpan);
+
+          callHistoryDiv.appendChild(newEntryDiv);
+        });
+
+        clearHistoryButton.addEventListener("click", function () {
+          callHistoryDiv.innerHTML = "";
+        });
+      }
+    </script>
+  </body>
+</html>
